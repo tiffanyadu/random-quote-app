@@ -1,0 +1,16 @@
+/*** General Styles ***/
+body { padding: 5%; }
+#wrapper {
+  align-items: center;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  max-width: 720px;
+  padding: 5%;
+  width: 80%;
+}
+#content {
+  background-color: #ccc;
+}
