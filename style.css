@@ -1,16 +1,49 @@
-/*** General Styles ***/
-body { padding: 5%; }
-#wrapper {
+body {
+  background: #4ecdc4 no-repeat center fixed;
+  background-size: cover;
+  font-family: 'Raleway', sans-serif;
+  font-size: 110%;
+  padding: 5%;
+}
+.container {
   align-items: center;
-  background-color: #eee;
-  border: 1px solid #ccc;
   display: flex;
   justify-content: center;
   margin: auto;
   max-width: 720px;
-  padding: 5%;
-  width: 80%;
+  overflow: auto;
+  width: 100%;
 }
 #content {
-  background-color: #ccc;
+  background-color: rgba(0,0,0,0.6);
+  color: #fff;
+  overflow: auto;
+  padding: 5% 10%;
+  position: relative;
+}
+#quoteContent {
+  font-size: 2rem;
+  line-height: 1.3;
+}
+#quoteAuthor {
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-align: right;
+  text-transform: uppercase;
+}
+#quoteAuthor:before {
+  content: "-- "
+}
+#quoteSource {
+  font-size: 1rem;
+}
+#getQuoteBtn {
+  background-color: rgba(0,0,0,0.6);
+  border: 0;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 5%;
+  padding: 2%;
+  text-transform: uppercase;
 }
