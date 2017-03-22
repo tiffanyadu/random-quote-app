@@ -1,29 +1,42 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
 body {
   background: #4ecdc4 no-repeat center fixed;
+/*  background-image: url(https://images.unsplash.com/photo-1483820493755-c9210384ed8e?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&s=b88ec4d545449ecce2469f6da2b2ee1a); */
   background-size: cover;
   font-family: 'Raleway', sans-serif;
-  font-size: 110%;
-  padding: 5%;
+  font-size: 105%;
+}
+a {
+  color: #4ecdc4;
+  text-decoration: none;
+}
+a:focus,
+a:hover {
+  color: #4ecdc4;
+  text-decoration: underline;
+}
+a:visited { color: #40a8a1; }
+#content {
+  min-height: 100%;
 }
 .container {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  margin: auto;
+  margin: 0 auto;
   max-width: 720px;
-  overflow: auto;
-  width: 100%;
+  padding: 10% 10% 0;
 }
-#content {
-  background-color: rgba(0,0,0,0.6);
-  color: #fff;
-  overflow: auto;
+.container:last-child {
+  padding-bottom: 100px;
+}
+#quote {
+  background-color: rgba(255,255,255,0.9);
   padding: 5% 10%;
-  position: relative;
 }
 #quoteContent {
-  font-size: 2rem;
-  line-height: 1.3;
+  font-size: 1.7rem;
+  line-height: 1.5;
 }
 #quoteAuthor {
   font-weight: 600;
@@ -34,16 +47,54 @@ body {
 #quoteAuthor:before {
   content: "-- "
 }
-#quoteSource {
-  font-size: 1rem;
+.btnGroup {
+  position: relative;
 }
 #getQuoteBtn {
-  background-color: rgba(0,0,0,0.6);
+  background-color: #4ecdc4;
   border: 0;
+  color: #fff;
+  cursor: pointer;
   font-family: 'Raleway', sans-serif;
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  margin: 5%;
-  padding: 2%;
+  height: 60px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  opacity: 0.5;
   text-transform: uppercase;
+  transition: opacity 0.2s ease-in-out;
+  width: 200px;
+}
+#getQuoteBtn:focus,
+#getQuoteBtn:hover {
+  opacity: 1;
+}
+.twitter-share-button {
+  opacity: 0.5;
+  position: absolute;
+  transition: opacity 0.2s ease-in-out;
+}
+.twitter-share-button:focus,
+.twitter-share-button:hover {
+  opacity: 1;
+}
+.twitter-share-button > img {
+  width: 60px;
+}
+footer {
+  background-color: #fff;
+  font-size: 0.75rem;
+  height: 50px;
+  letter-spacing: 1px;
+  margin-top: -50px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+footer > p {
+  line-height: 20px;
+  margin: 0;
+  padding-top: 15px;
 }

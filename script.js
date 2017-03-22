@@ -1,4 +1,23 @@
 $(document).ready(function () {
+  // Decode html entities
+  function decodeHTML(html) {
+    var txt = document.createElement('textarea');
+    txt.innerHTML = html;
+    return txt.value;
+  }
+
+  // Process quote to create tweet link
+  function createURL(text) {
+    var href = 'https://twitter.com/intent/tweet?url=&via=dusign&hashtags=designquotes&text=';
+    var decodedText = decodeHTML(text);
+    // If too long, shorten to 114 characters and end with ellipses
+    if (decodedText.length > 114) {
+      decodedText = decodedText.slice(0, 112) + '&hellip;&rdquo;';
+      decodedText = decodeHTML(decodedText);
+    }
+    return href + decodedText;
+  }
+
   // Request random quote from quotesondesign.com
   function getRandomQuote() {
     var quoteRequest = $.ajax({
@@ -8,11 +27,13 @@ $(document).ready(function () {
       cache: false
     });
     quoteRequest.done(function (data) {
-      // Remove <p> tags and trailing white space
-      var quote = data[0].content.slice(3,-5).trim();
+      // Remove <p> tags and trailing white space & add double quotes
+      var quote = '&ldquo;' + data[0].content.slice(3,-5).trim() + '&rdquo;';
       var author = data[0].title;
-      $('#quoteContent').html('&ldquo; ' + quote + ' &rdquo;');
+      var twitterHref = createURL(quote);
+      $('#quoteContent').html( quote);
       $('#quoteAuthor').html(author);
+      $('.twitter-share-button').attr('href', twitterHref);
     });
     quoteRequest.fail(function (xhr, status, error) {
       console.warn(xhr.responseText);
