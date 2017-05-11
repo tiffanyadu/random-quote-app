@@ -22,7 +22,7 @@ $(document).ready(function () {
   function getRandomQuote() {
     var quoteRequest = $.ajax({
       type: 'GET',
-      url: 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=?',
+      url: 'https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=?',
       datatype: 'json',
       cache: false
     });
