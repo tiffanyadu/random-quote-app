@@ -1,21 +1,21 @@
 $(document).ready(function () {
-  // Decode html entities
-  function decodeHTML(html) {
+  function urlEncode(html) {
     var txt = document.createElement('textarea');
     txt.innerHTML = html;
-    return txt.value;
+    var result = txt.value;
+    result = encodeURIComponent(result); // Url encode special characters
+    return result;
   }
 
   // Process quote to create tweet link
   function createURL(text) {
     var href = 'https://twitter.com/intent/tweet?url=&via=dusign&hashtags=designquotes&text=';
-    var decodedText = decodeHTML(text);
     // If too long, shorten to 114 characters and end with ellipses
-    if (decodedText.length > 114) {
-      decodedText = decodedText.slice(0, 112) + '&hellip;&rdquo;';
-      decodedText = decodeHTML(decodedText);
+    if (text.length > 114) {
+      text = text.slice(0, 112) + '&hellip;&rdquo;';
     }
-    return href + decodedText;
+    text = urlEncode(text);
+    return href + text;
   }
 
   // Request random quote from quotesondesign.com
